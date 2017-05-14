@@ -107,7 +107,16 @@ void Client::readMessage()
 {
     if(tcpSocket->bytesAvailable()){
         QByteArray arr = tcpSocket->readAll();
-        QString currentMessage = QString(arr.data());
+        currentMessage = QString(arr.data());
+        // Parse data
+
+        int i = qrand() % 360;
+        emit this->setRotation(i);
+
+        qInfo() << "random rotation value: " << i;
+        // _socketToQML->setPosition();
+        // _socketToQML->setScale();
+
         qInfo() << currentMessage;
     }
 }
@@ -151,4 +160,3 @@ void Client::sessionOpened()
 
 
 }
-

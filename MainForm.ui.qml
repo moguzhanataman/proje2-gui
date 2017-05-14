@@ -13,11 +13,10 @@ Rectangle {
 
     Connections {
         target: client
-        //        onSetRotation: {
-
-        //            console.log(qsTr('' + this))
-        //            stickMan.rotation = degree
-        //        }
+        onSetRotation: {
+            console.log(qsTr('' + this))
+            stickMan.rotation = degree
+        }
     }
 
     MouseArea {
@@ -37,6 +36,15 @@ Rectangle {
             color: "#ffffff"
             z: 1
             border.width: 1
+
+            Image {
+                id: stickMan
+                x: 0
+                y: 0
+                width: 100
+                height: 100
+                source: "template/stickman.png"
+            }
         }
 
         Rectangle {

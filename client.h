@@ -56,6 +56,7 @@
 #include <QDataStream>
 #include <QString>
 #include <QThread>
+#include "sockettoqml.h"
 
 class QComboBox;
 class QLabel;
@@ -78,10 +79,16 @@ private slots:
 
     void displayError(QAbstractSocket::SocketError socketError);
     void sessionOpened();
+
+signals:
+    void setRotation(int degree);
+    void setShortSide(int length);
+    void setLongSide(int length);
+    // ... buraya degistirecegin seyleri yaz.
+
 private:
     QTcpSocket *tcpSocket;
     QDataStream in;
-
     QString currentDomain;
     QNetworkSession *networkSession;
 };
