@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>MainForm.ui.qml</file>
+        <file>template/stickman.png</file>
+        <file>Ruler.qml</file>
+        <file>Ruler2.qml</file>
+    </qresource>
+</RCC>
