@@ -110,14 +110,14 @@ void Client::readMessage()
         currentMessage = QString(arr.data());
         // Parse data
 
-        int i = qrand() % 360;
-        emit this->setRotation(i);
+//        int i = qrand() % 360;
+//        emit this->setRotation(i);
 
-        qInfo() << "random rotation value: " << i;
+        emit this->setRotation(currentMessage.toInt());
+
+        qInfo() << "random rotation value: " << currentMessage;
         // _socketToQML->setPosition();
         // _socketToQML->setScale();
-
-        qInfo() << currentMessage;
     }
 }
 
