@@ -14,7 +14,7 @@ int main(int argc, char *argv[])
 
     Client client;
     client.Init();
-
+    client.sendMessage(QString("GO"));
     QQmlContext* ctx = engine.rootContext();
     ctx->setContextProperty("client", &client);
 

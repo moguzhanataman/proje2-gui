@@ -121,6 +121,11 @@ void Client::readMessage()
     }
 }
 
+void Client::sendMessage(QString messageToSend)
+{
+    tcpSocket->write(messageToSend.toStdString().c_str(), messageToSend.size());
+}
+
 void Client::displayError(QAbstractSocket::SocketError socketError)
 {
     switch (socketError) {
