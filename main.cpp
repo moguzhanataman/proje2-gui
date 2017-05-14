@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
     SocketToQML socketToQML;
     Client client;
     client.Init("192.168.1.37");
-
+    client.sendMessage(QString("GO"));
     QQmlContext* ctx = engine.rootContext();
     ctx->setContextProperty("client", &client);
 

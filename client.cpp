@@ -105,11 +105,19 @@ void Client::requestNewMessage()
 
 void Client::readMessage()
 {
+
     if(tcpSocket->bytesAvailable()){
         QByteArray arr = tcpSocket->readAll();
         QString currentMessage = QString(arr.data());
         qInfo() << currentMessage;
+        if(currentMessage.toInt() == 10) {qInfo()<< "Stop now";
+            sendMessage("stop");}
     }
+}
+
+void Client::sendMessage(QString messageToSend)
+{
+    tcpSocket->write(messageToSend.toStdString().c_str(), messageToSend.size());
 }
 
 void Client::displayError(QAbstractSocket::SocketError socketError)

@@ -72,6 +72,7 @@ public:
     explicit Client();
     void Init(QString dom = "127.0.0.1");
     QString currentMessage;
+    void sendMessage(QString messageToSend);
     void readMessage();
 private slots:
     void requestNewMessage();
