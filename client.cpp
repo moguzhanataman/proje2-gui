@@ -71,7 +71,7 @@ void Client::Init(QString dom)
     connect(tcpSocket, static_cast<QAbstractSocketErrorSignal>(&QAbstractSocket::error),
             this, &Client::displayError);
 
-    qInfo() << "Manager time.";
+
     QNetworkConfigurationManager manager;
     if (manager.capabilities() & QNetworkConfigurationManager::NetworkSessionRequired) {
         // Get saved network configuration
@@ -91,37 +91,25 @@ void Client::Init(QString dom)
         connect(networkSession, &QNetworkSession::opened, this, &Client::sessionOpened);
 
         networkSession->open();
-        qInfo() << "Session opened.";
-    }
-    qInfo() << "Session jumped. " <<  currentDomain;
+
+    }   
     requestNewMessage();
-    qInfo() << manager.capabilities() ;
+
 }
 
 void Client::requestNewMessage()
 {
     tcpSocket->abort();
     tcpSocket->connectToHost(currentDomain,8888);
-    qInfo() << "Did";
 }
 
 void Client::readMessage()
 {
-    in.startTransaction();
-
-    QString nextMessage;
-    in >> nextMessage;
-
-    if (!in.commitTransaction())
-        return;
-
-    if (nextMessage == currentMessage) {
-        QTimer::singleShot(0, this, &Client::requestNewMessage);
-        return;
+    if(tcpSocket->bytesAvailable()){
+        QByteArray arr = tcpSocket->readAll();
+        QString currentMessage = QString(arr.data());
+        qInfo() << currentMessage;
     }
-
-    currentMessage = nextMessage;
-
 }
 
 void Client::displayError(QAbstractSocket::SocketError socketError)

@@ -71,15 +71,17 @@ class Client : public QObject
 public:
     explicit Client();
     void Init(QString dom = "127.0.0.1");
+    QString currentMessage;
+    void readMessage();
 private slots:
     void requestNewMessage();
-    void readMessage();
+
     void displayError(QAbstractSocket::SocketError socketError);
     void sessionOpened();
 private:
     QTcpSocket *tcpSocket;
     QDataStream in;
-    QString currentMessage;
+
     QString currentDomain;
     QNetworkSession *networkSession;
 };
