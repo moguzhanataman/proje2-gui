@@ -83,6 +83,10 @@ private slots:
 
 signals:
     void setRotation(int degree);
+
+    void setPosX(int x);
+    void setPosY(int y);
+
     void setShortSide(int length);
     void setLongSide(int length);
     // ... buraya degistirecegin seyleri yaz.

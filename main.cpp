@@ -13,7 +13,7 @@ int main(int argc, char *argv[])
     QQmlApplicationEngine engine;
 
     Client client;
-    client.Init();
+    client.Init("10.1.18.16");
     client.sendMessage(QString("GO"));
     QQmlContext* ctx = engine.rootContext();
     ctx->setContextProperty("client", &client);

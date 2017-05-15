@@ -14,8 +14,18 @@ Rectangle {
     Connections {
         target: client
         onSetRotation: {
-            console.log(qsTr('' + this))
+            console.log(qsTr('rotation: ' + degree))
             stickMan.rotation = degree
+        }
+
+        onSetPosX: {
+            console.log(qsTr('position from left: ' + x))
+            stickMan.x = x * 2;
+        }
+
+        onSetPosY: {
+            console.log(qsTr('position from top: ' + y))
+            stickMan.y = y * 2;
         }
     }
 
@@ -43,6 +53,7 @@ Rectangle {
                 y: 0
                 width: 100
                 height: 100
+                z: 100
                 source: "template/stickman.png"
             }
         }

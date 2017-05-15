@@ -108,16 +108,33 @@ void Client::readMessage()
     if(tcpSocket->bytesAvailable()){
         QByteArray arr = tcpSocket->readAll();
         currentMessage = QString(arr.data());
-        // Parse data
 
-//        int i = qrand() % 360;
-//        emit this->setRotation(i);
+        qInfo() << "currentMsg = " << currentMessage;
 
-        emit this->setRotation(currentMessage.toInt());
+        if (currentMessage == QString("Welcome")) {
+            // Do nothing
+        } else {
+            // Parse message
+            int pos_x, pos_y;
+            sscanf(currentMessage.toStdString().c_str(), "%d %d", &pos_x, &pos_y);
 
-        qInfo() << "random rotation value: " << currentMessage;
-        // _socketToQML->setPosition();
-        // _socketToQML->setScale();
+            qInfo() << "msg from server: " << currentMessage;
+            qInfo() << "pos_x: " << pos_x << " pos_y: " << pos_y;
+
+            if (pos_x > 0) {
+                emit this->setPosX(pos_x);
+            }
+
+            if (pos_y > 0) {
+                emit this->setPosY(pos_y);
+            }
+
+    //        emit this->setRotation(currentMessage.toInt());
+
+
+            // _socketToQML->setPosition();
+            // _socketToQML->setScale();
+        }
     }
 }
 
