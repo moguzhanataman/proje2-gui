@@ -115,19 +115,27 @@ void Client::readMessage()
             // Do nothing
         } else {
             // Parse message
-            int pos_x, pos_y;
-            sscanf(currentMessage.toStdString().c_str(), "%d %d", &pos_x, &pos_y);
+
+            // Camera X-y haric digerleri cin ali bulunmadiysa -1 gelebilir.
+            int cam_x, cam_y;
+            int cinali_x, cinali_y;
+            int height, width;
+            int angle;
+//            int pos_x, pos_y;
+            sscanf(currentMessage.toStdString().c_str(),
+                   "%d %d %d %d %d %d %d",
+                   &cam_x, &cam_y, &cinali_x, &cinali_y, &height, &width, &angle);
 
             qInfo() << "msg from server: " << currentMessage;
-            qInfo() << "pos_x: " << pos_x << " pos_y: " << pos_y;
+//            qInfo() << "pos_x: " << pos_x << " pos_y: " << pos_y;
 
-            if (pos_x > 0) {
-                emit this->setPosX(pos_x);
-            }
+//            if (pos_x > 0) {
+//                emit this->setPosX(pos_x);
+//            }
 
-            if (pos_y > 0) {
-                emit this->setPosY(pos_y);
-            }
+//            if (pos_y > 0) {
+//                emit this->setPosY(pos_y);
+//            }
 
     //        emit this->setRotation(currentMessage.toInt());
 
@@ -181,4 +189,20 @@ void Client::sessionOpened()
 //                            "Fortune Server example as well."));
 
 
+}
+
+void Client::sendPause() {
+    sendMessage(QString("pause"));
+}
+
+void Client::sendContinue() {
+    sendMessage(QString("continue"));
+}
+
+void Client::sendQuit() {
+    sendMessage(QString("quit"));
+}
+
+void Client::sendStart(int algorithm) {
+    sendMessage(QString(algorithm));
 }

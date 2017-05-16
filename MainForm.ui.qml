@@ -3,13 +3,21 @@ import QtQuick.Controls 2.1
 
 Rectangle {
     width: 1078
-    height: 440
+    height: 700
+
+    property int currentIndex: 1
+
+
+
     property alias connectButton: connectButton
-    property alias dialRotation: dialRotation
+    property alias ipAddrTextField: ipAddrTextField
+    property alias startButton: startButton
+    property alias quitButton: quitButton
+    property alias continueButton: continueButton
+    property alias pauseButton: pauseButton
     property alias hardwareSettings: hardwareSettings
 
     property alias mouseArea: mouseArea
-    property alias rebootButton: rebootButton
 
     Connections {
         target: client
@@ -20,12 +28,12 @@ Rectangle {
 
         onSetPosX: {
             console.log(qsTr('position from left: ' + x))
-            stickMan.x = x * 2;
+            stickMan.x = x * 2
         }
 
         onSetPosY: {
             console.log(qsTr('position from top: ' + y))
-            stickMan.y = y * 2;
+            stickMan.y = y * 2
         }
     }
 
@@ -60,29 +68,54 @@ Rectangle {
 
         Rectangle {
             id: hardwareSettings
-            x: 556
-            y: 64
+            x: 853
+            y: 238
             width: 217
-            height: 296
+            height: 454
             color: "#ffffff"
             border.width: 1
 
-            Label {
-                id: hardwareSettingsLabel
-                x: 56
-                y: 8
-                text: qsTr("Hardware Settings")
-                anchors.horizontalCenter: parent.horizontalCenter
+            Button {
+                id: pauseButton
+                x: 63
+                y: 278
+                width: 100
+                height: 50
+                text: qsTr("Pause")
+                opacity: 1
             }
 
             Button {
-                id: rebootButton
-                x: 59
-                y: 105
+                id: continueButton
+                x: 63
+                y: 334
                 width: 100
                 height: 50
-                text: qsTr("Reboot")
+                text: qsTr("Continue")
                 opacity: 1
+            }
+
+            Button {
+                id: quitButton
+                x: 63
+                y: 390
+                width: 100
+                height: 50
+                text: qsTr("Quit")
+                opacity: 1
+            }
+
+            Button {
+                id: startButton
+                x: 63
+                y: 226
+                text: qsTr("Start")
+            }
+
+            AlgorithmSelection {
+                id: algorithmSelection
+                x: 109
+                y: 16
             }
         }
 
@@ -104,56 +137,6 @@ Rectangle {
             maxVal: 21
             rotation: 90
         }
-
-        Rectangle {
-            id: stickManSettings
-            x: 808
-            y: 64
-            width: 229
-            height: 239
-            color: "#ffffff"
-
-            Label {
-                id: rotationLabel
-                x: 23
-                y: 8
-                text: qsTr("Rotation:")
-            }
-
-            Dial {
-                id: dialRotation
-                x: 23
-                y: 28
-                stepSize: 1
-                to: 359
-            }
-
-            Rectangle {
-                id: rectangle
-                x: 0
-                y: 255
-                width: 229
-                height: 103
-                color: "#ffffff"
-
-                TextEdit {
-                    id: domainTextEdit
-                    x: 8
-                    y: 8
-                    width: 213
-                    height: 34
-                    text: qsTr("Domain")
-                    font.pixelSize: 12
-                }
-
-                Button {
-                    id: connectButton
-                    x: 65
-                    y: 48
-                    text: qsTr("Connect")
-                }
-            }
-        }
     }
 
     Text {
@@ -162,5 +145,36 @@ Rectangle {
         y: 28
         text: qsTr("cm")
         font.pixelSize: 20
+    }
+
+    Rectangle {
+        id: rectangle
+        x: 853
+        y: 28
+        width: 217
+        height: 200
+        color: "#ffffff"
+        radius: 1
+        border.width: 1
+
+        TextField {
+            id: ipAddrTextField
+            x: 9
+            y: 63
+        }
+
+        Label {
+            id: label
+            x: 9
+            y: 40
+            text: qsTr("IP Address")
+        }
+
+        Button {
+            id: connectButton
+            x: 9
+            y: 123
+            text: qsTr("Connect")
+        }
     }
 }

@@ -75,11 +75,17 @@ public:
     QString currentMessage;
     void readMessage();
     void sendMessage(QString messageToSend);
-private slots:
+
+public slots:
     void requestNewMessage();
 
     void displayError(QAbstractSocket::SocketError socketError);
     void sessionOpened();
+
+    void sendPause();
+    void sendContinue();
+    void sendQuit();
+    void sendStart(int algorithm);
 
 signals:
     void setRotation(int degree);
@@ -89,7 +95,6 @@ signals:
 
     void setShortSide(int length);
     void setLongSide(int length);
-    // ... buraya degistirecegin seyleri yaz.
 
 private:
     QTcpSocket *tcpSocket;

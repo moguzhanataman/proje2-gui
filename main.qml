@@ -9,15 +9,39 @@ Window {
     title: qsTr("Project II Interface")
 
     MainForm {
-        connectButton.onClicked: {
-
+        id: mainForm
+        onCurrentIndexChanged: {
+            console.log("Current index = " + currentIndex)
         }
 
-        rebootButton.onClicked: {
-            dial.increase()
-//            stickMan.rotation = (stickMan.rotation + 30) % 360
-//            console.log(qsTr('' + stickMan.rotation))
+        pauseButton.onClicked: {
+            client.sendPause()
         }
+
+        continueButton.onClicked: {
+            client.sendContinue()
+        }
+
+        quitButton.onClicked: {
+            client.sendQuit()
+        }
+
+        startButton.onClicked: {
+            client.sendStart(currentIndex)
+        }
+
+//        startButton.onClicked: {
+//            client.sendStart(current)
+//        }
+
+        // Radio Button handlers
+
+
+//        rebootButton.onClicked: {
+//            dial.increase()
+////            stickMan.rotation = (stickMan.rotation + 30) % 360
+////            console.log(qsTr('' + stickMan.rotation))
+//        }
 
 
 
