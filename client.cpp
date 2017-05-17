@@ -126,22 +126,33 @@ void Client::readMessage()
                    "%d %d %d %d %d %d %d",
                    &cam_x, &cam_y, &cinali_x, &cinali_y, &height, &width, &angle);
 
-            qInfo() << "msg from server: " << currentMessage;
+            qInfo() << "Message from server: " << currentMessage;
+            qInfo() << "Parsed data: " << endl << "Kamera X: " << cam_x << " Kamera Y: " << cam_y
+                    << endl << "Cinali X: " << cinali_x << " Cinali Y: " << cinali_y
+                    << endl << "height: " << height << " width" << width << " angle " << angle << endl
+                    << "=========================" << endl;
 //            qInfo() << "pos_x: " << pos_x << " pos_y: " << pos_y;
 
-//            if (pos_x > 0) {
-//                emit this->setPosX(pos_x);
-//            }
 
-//            if (pos_y > 0) {
-//                emit this->setPosY(pos_y);
-//            }
+            if (cam_x > 0 && cinali_x > 0) {
+                emit this->setPosX((int) ((cam_x - 28) + cinali_x * (56.0/640)));
+            }
 
-    //        emit this->setRotation(currentMessage.toInt());
+            if (cam_y > 0 && cinali_y > 0) {
+                emit this->setPosY((int) ((cam_y - 21) + cinali_y * (42.0/480)));
+            }
 
+            if (angle > 0) {
+                emit this->setRotation(angle);
+            }
 
-            // _socketToQML->setPosition();
-            // _socketToQML->setScale();
+            if (height > 0) {
+                emit this->setHeight((int) height/480.0 * (42.0/480));
+            }
+
+            if (width > 0) {
+                emit this->setWidth((int) width/640.0 * (56.0/640));
+            }
         }
     }
 }
@@ -204,5 +215,5 @@ void Client::sendQuit() {
 }
 
 void Client::sendStart(int algorithm) {
-    sendMessage(QString(algorithm));
+    sendMessage(QString(algorithm).toStdString().c_str());
 }

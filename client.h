@@ -93,8 +93,8 @@ signals:
     void setPosX(int x);
     void setPosY(int y);
 
-    void setShortSide(int length);
-    void setLongSide(int length);
+    void setHeight(int height);
+    void setWidth(int width);
 
 private:
     QTcpSocket *tcpSocket;

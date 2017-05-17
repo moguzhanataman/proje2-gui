@@ -28,12 +28,22 @@ Rectangle {
 
         onSetPosX: {
             console.log(qsTr('position from left: ' + x))
-            stickMan.x = x * 2
+            stickMan.x = x
         }
 
         onSetPosY: {
             console.log(qsTr('position from top: ' + y))
-            stickMan.y = y * 2
+            stickMan.y = y
+        }
+
+        onSetHeight: {
+            stickMan.width = width * (56.0/640) / 2
+
+        }
+
+        onSetWidth: {
+            stickMan.height = height * (42.0/480) / 2
+
         }
     }
 

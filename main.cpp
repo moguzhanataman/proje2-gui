@@ -14,7 +14,7 @@ int main(int argc, char *argv[])
 
     Client client;
     client.Init("10.1.18.126");
-//    client.sendMessage(QString("OK"));r
+    client.sendMessage(QString("1"));
     QQmlContext* ctx = engine.rootContext();
     ctx->setContextProperty("client", &client);
 
