@@ -6,5 +6,6 @@
         <file>Ruler.qml</file>
         <file>Ruler2.qml</file>
         <file>AlgorithmSelection.qml</file>
+        <file>template/Stick Man Vector.svg</file>
     </qresource>
 </RCC>

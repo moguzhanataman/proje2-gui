@@ -63,12 +63,11 @@ Rectangle {
 
             Image {
                 id: stickMan
-                x: 0
-                y: 0
-                width: 100
-                height: 100
-                z: 100
-                source: "template/stickman.png"
+                x: 8
+                y: 8
+                width: 50
+                height: 80
+                source: "template/Stick Man Vector.svg"
             }
         }
 
