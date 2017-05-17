@@ -60,27 +60,29 @@ Rectangle {
             id: fixedImageFrame
             x: 102
             y: 64
-            width: 630
-            height: 444
+            // MERGE CONF
+            //width: 630
+            //height: 444
+            width: 672
+            height: 474
             color: "#ffffff"
             z: 1
             border.width: 1
 
             Image {
                 id: stickMan
-                x: 0
-                y: 0
-                width: 100
-                height: 100
-                z: 100
-                source: "template/stickman.png"
+                x: 8
+                y: 8
+                width: 50
+                height: 80
+                source: "template/Stick Man Vector.svg"
             }
         }
 
         Rectangle {
             id: hardwareSettings
-            x: 852
-            y: 189
+            x: 800
+            y: 225
             width: 217
             height: 331
             color: "#ffffff"
@@ -160,8 +162,8 @@ Rectangle {
 
     Rectangle {
         id: rectangle
-        x: 853
-        y: 28
+        x: 800
+        y: 64
         width: 217
         height: 153
         color: "#ffffff"
