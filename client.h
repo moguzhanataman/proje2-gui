@@ -71,12 +71,13 @@ class Client : public QObject
 
 public:
     explicit Client();
-    void Init(QString dom = "127.0.0.1");
     QString currentMessage;
     void readMessage();
     void sendMessage(QString messageToSend);
 
 public slots:
+    void init(QString dom = "127.0.0.1");
+
     void requestNewMessage();
 
     void displayError(QAbstractSocket::SocketError socketError);
@@ -86,6 +87,8 @@ public slots:
     void sendContinue();
     void sendQuit();
     void sendStart(int algorithm);
+
+    void setIpAddr(QString ipAddr);
 
 signals:
     void setRotation(int degree);

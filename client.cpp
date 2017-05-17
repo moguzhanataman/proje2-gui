@@ -58,7 +58,7 @@
 
 Client::Client(){}
 
-void Client::Init(QString dom)
+void Client::init(QString dom)
 {
     tcpSocket = new QTcpSocket(this);
     networkSession = Q_NULLPTR;
@@ -113,6 +113,8 @@ void Client::readMessage()
 
         if (currentMessage == QString("Welcome")) {
             // Do nothing
+        } else if (currentMessage == QString("quit") ) {
+            tcpSocket->close();
         } else {
             // Parse message
 
@@ -212,8 +214,13 @@ void Client::sendContinue() {
 
 void Client::sendQuit() {
     sendMessage(QString("quit"));
+    tcpSocket->close();
 }
 
 void Client::sendStart(int algorithm) {
-    sendMessage(QString(algorithm).toStdString().c_str());
+    sendMessage(QString::number(algorithm));
+}
+
+void Client::setIpAddr(QString ipAddr) {
+    currentDomain = ipAddr;
 }

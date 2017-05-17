@@ -30,6 +30,11 @@ Window {
             client.sendStart(currentIndex)
         }
 
+        connectButton.onClicked: {
+            client.init(ipAddrTextField.text)
+//            client.setIpAddr(ipAddrTextField.text)
+        }
+
 //        startButton.onClicked: {
 //            client.sendStart(current)
 //        }

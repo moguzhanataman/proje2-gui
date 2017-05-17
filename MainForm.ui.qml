@@ -7,8 +7,6 @@ Rectangle {
 
     property int currentIndex: 1
 
-
-
     property alias connectButton: connectButton
     property alias ipAddrTextField: ipAddrTextField
     property alias startButton: startButton
@@ -37,13 +35,11 @@ Rectangle {
         }
 
         onSetHeight: {
-            stickMan.width = width * (56.0/640) / 2
-
+            stickMan.width = width * (56.0 / 640) / 2
         }
 
         onSetWidth: {
-            stickMan.height = height * (42.0/480) / 2
-
+            stickMan.height = height * (42.0 / 480) / 2
         }
     }
 
@@ -78,47 +74,47 @@ Rectangle {
 
         Rectangle {
             id: hardwareSettings
-            x: 853
-            y: 238
+            x: 852
+            y: 189
             width: 217
-            height: 454
+            height: 331
             color: "#ffffff"
             border.width: 1
 
             Button {
                 id: pauseButton
-                x: 63
-                y: 278
-                width: 100
-                height: 50
+                x: 117
+                y: 225
+                width: 92
+                height: 40
                 text: qsTr("Pause")
                 opacity: 1
             }
 
             Button {
                 id: continueButton
-                x: 63
-                y: 334
+                x: 9
+                y: 281
                 width: 100
-                height: 50
+                height: 38
                 text: qsTr("Continue")
                 opacity: 1
             }
 
             Button {
                 id: quitButton
-                x: 63
-                y: 390
-                width: 100
-                height: 50
+                x: 117
+                y: 281
+                width: 92
+                height: 38
                 text: qsTr("Quit")
                 opacity: 1
             }
 
             Button {
                 id: startButton
-                x: 63
-                y: 226
+                x: 9
+                y: 225
                 text: qsTr("Start")
             }
 
@@ -162,28 +158,28 @@ Rectangle {
         x: 853
         y: 28
         width: 217
-        height: 200
+        height: 153
         color: "#ffffff"
         radius: 1
         border.width: 1
 
         TextField {
             id: ipAddrTextField
-            x: 9
-            y: 63
+            x: 8
+            y: 37
         }
 
         Label {
             id: label
-            x: 9
-            y: 40
+            x: 8
+            y: 14
             text: qsTr("IP Address")
         }
 
         Button {
             id: connectButton
-            x: 9
-            y: 123
+            x: 8
+            y: 97
             text: qsTr("Connect")
         }
     }
