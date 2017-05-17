@@ -5,7 +5,6 @@ CONFIG += c++11
 SOURCES += main.cpp \
     sockettoqml.cpp \
     client.cpp \
-    chronoui.cpp \
     digitalclock.cpp
 
 RESOURCES += qml.qrc
