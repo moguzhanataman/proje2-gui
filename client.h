@@ -103,6 +103,8 @@ signals:
     void setWidth(int width);
 
     void stopTimer();
+    void startTimer();
+    void stickManFound();
 private:
     QTcpSocket *tcpSocket;
     QDataStream in;

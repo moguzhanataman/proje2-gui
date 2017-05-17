@@ -121,6 +121,9 @@ void Client::readMessage()
             tcpSocket->close();
             emit this->stopTimer();
             qInfo() << "notfound received";
+        } else if (currentMessage == QString("start")) {
+            emit this->startTimer();
+            qInfo() << "start received";
         } else {
             // Parse message
 
@@ -141,8 +144,25 @@ void Client::readMessage()
                     << "=========================" << endl;
 //            qInfo() << "pos_x: " << pos_x << " pos_y: " << pos_y;
 
+            bool isCinAli = (cinali_x > 0) && (cinali_y > 0) && (height > 0) && (width > 0) && (angle > 0);
 
+            if (isCinAli) {
+                emit this->setPosX((int) ((cam_x - 28) + cinali_x * (56.0/640)));
+                emit this->setPosY((int) ((cam_y - 21) + cinali_y * (42.0/480)));
+                emit this->setRotation(angle);
+                emit this->setHeight((int) height/480.0 * (42.0/480));
+                emit this->setWidth((int) width/640.0 * (56.0/640));
+
+                emit this->stickManFound();
+            } else {
+                emit this->setPosX(cam_x);
+                emit this->setPosY(cam_y);
+            }
+
+
+            /*
             if (cam_x > 0 && cinali_x > 0) {
+
                 emit this->setPosX((int) ((cam_x - 28) + cinali_x * (56.0/640)));
             }
 
@@ -160,7 +180,7 @@ void Client::readMessage()
 
             if (width > 0) {
                 emit this->setWidth((int) width/640.0 * (56.0/640));
-            }
+            }*/
         }
     }
 }

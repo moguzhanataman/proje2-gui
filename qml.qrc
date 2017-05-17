@@ -7,6 +7,7 @@
         <file>Ruler2.qml</file>
         <file>AlgorithmSelection.qml</file>
         <file>Global.js</file>
-        <file>template/Stick Man Vector.svg</file>
+        <file>template/stick-man-vector.svg</file>
+        <file>template/camera-icon.png</file>
     </qresource>
 </RCC>

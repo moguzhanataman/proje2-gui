@@ -46,6 +46,30 @@ Rectangle {
         onStopTimer: {
             textTimer.running = false
         }
+
+        onStartTimer: {
+            // restart chronometer
+            chronoText.text = "00:00:00"
+            console.log(chronoText.text)
+
+            // move cam to 22,28
+            stickMan.x = 22
+            console.log(stickMan.x)
+            stickMan.y = 28
+            console.log(stickMan.y)
+
+            textTimer.running = true
+            console.log("running true oldu")
+            if (startTime == 0) {
+                console.log("start time sifir")
+                startTime = new Date().getTime()
+            }
+        }
+
+        onStickManFound: {
+            console.log("stick-man resmini getir.")
+            stickMan.source = "template/stick-man-vector.svg"
+        }
     }
 
     MouseArea {
@@ -60,11 +84,8 @@ Rectangle {
             id: fixedImageFrame
             x: 102
             y: 64
-            // MERGE CONF
             width: 630
             height: 444
-//            width: 672
-//            height: 474
             color: "#ffffff"
             z: 1
             border.width: 1
@@ -73,9 +94,9 @@ Rectangle {
                 id: stickMan
                 x: 8
                 y: 8
-                width: 50
-                height: 80
-                source: "template/Stick Man Vector.svg"
+                width: 64
+                height: 64
+                source: "template/camera-icon.png"
             }
         }
 
@@ -138,6 +159,7 @@ Rectangle {
             y: 64
             width: 52
             height: 296
+            rotation: 0
             maxVal: 15
         }
 

@@ -35,9 +35,7 @@ Window {
         startButton.onClicked: {
             client.sendStart(currentIndex)
 //            Global.previousTime = new Date
-            if (startTime == 0) {
-                startTime = new Date().getTime()
-            }
+
 
 //            client.initClock()
 //            clock.init()
@@ -91,7 +89,7 @@ Window {
                 id: textTimer
                 interval: 1000
                 repeat: true
-                running: true
+                running: false
                 triggeredOnStart: true
 
                 onTriggered: {
