@@ -4,7 +4,8 @@ CONFIG += c++11
 
 SOURCES += main.cpp \
     sockettoqml.cpp \
-    client.cpp
+    client.cpp \
+    digitalclock.cpp
 
 RESOURCES += qml.qrc
 
@@ -34,4 +35,5 @@ DISTFILES +=
 
 HEADERS += \
     sockettoqml.h \
-    client.h
+    client.h \
+    digitalclock.h
