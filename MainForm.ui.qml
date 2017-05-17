@@ -58,13 +58,13 @@ Rectangle {
 
         Rectangle {
             id: fixedImageFrame
-            x: 102
-            y: 64
+            x: 101
+            y: 112
             // MERGE CONF
             width: 630
             height: 444
-//            width: 672
-//            height: 474
+            //            width: 672
+            //            height: 474
             color: "#ffffff"
             z: 1
             border.width: 1
@@ -76,6 +76,16 @@ Rectangle {
                 width: 50
                 height: 80
                 source: "template/Stick Man Vector.svg"
+            }
+
+            Image {
+                id: image1
+                x: -253
+                y: 200
+                rotation: 90
+                width: 458
+                height: 56
+                source: "template/Ruler15.png"
             }
         }
 
@@ -131,33 +141,6 @@ Rectangle {
                 y: 16
             }
         }
-
-        Ruler {
-            id: rulerVert1
-            x: 44
-            y: 64
-            width: 52
-            height: 296
-            maxVal: 15
-        }
-
-        Ruler {
-            id: rulerHor1
-            x: 286
-            y: -169
-            width: 52
-            height: 420
-            maxVal: 21
-            rotation: 90
-        }
-    }
-
-    Text {
-        id: text2
-        x: 57
-        y: 28
-        text: qsTr("cm")
-        font.pixelSize: 20
     }
 
     Rectangle {
@@ -189,5 +172,14 @@ Rectangle {
             y: 97
             text: qsTr("Connect")
         }
+    }
+
+    Image {
+        id: image
+        x: 101
+        y: 56
+        width: 645
+        height: 56
+        source: "template/Ruler21.png"
     }
 }

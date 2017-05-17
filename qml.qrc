@@ -8,5 +8,9 @@
         <file>AlgorithmSelection.qml</file>
         <file>Global.js</file>
         <file>template/Stick Man Vector.svg</file>
+        <file>template/Ruler15.png</file>
+        <file>template/Ruler21.png</file>
+        <file>template/Ruler30.png</file>
+        <file>Image1.ui.qml</file>
     </qresource>
 </RCC>
