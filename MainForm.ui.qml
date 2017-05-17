@@ -55,8 +55,8 @@ Rectangle {
             id: fixedImageFrame
             x: 102
             y: 64
-            width: 420
-            height: 296
+            width: 672
+            height: 474
             color: "#ffffff"
             z: 1
             border.width: 1
@@ -73,8 +73,8 @@ Rectangle {
 
         Rectangle {
             id: hardwareSettings
-            x: 852
-            y: 189
+            x: 800
+            y: 225
             width: 217
             height: 331
             color: "#ffffff"
@@ -154,8 +154,8 @@ Rectangle {
 
     Rectangle {
         id: rectangle
-        x: 853
-        y: 28
+        x: 800
+        y: 64
         width: 217
         height: 153
         color: "#ffffff"
