@@ -115,6 +115,12 @@ void Client::readMessage()
             // Do nothing
         } else if (currentMessage == QString("quit") ) {
             tcpSocket->close();
+            emit this->stopTimer();
+            qInfo() << "quit received";
+        } else if (currentMessage == QString("notfound")) {
+            tcpSocket->close();
+            emit this->stopTimer();
+            qInfo() << "notfound received";
         } else {
             // Parse message
 
@@ -223,4 +229,8 @@ void Client::sendStart(int algorithm) {
 
 void Client::setIpAddr(QString ipAddr) {
     currentDomain = ipAddr;
+}
+
+void Client::initClock() {
+    clock.init();
 }

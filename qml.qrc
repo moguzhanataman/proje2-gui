@@ -6,5 +6,7 @@
         <file>Ruler.qml</file>
         <file>Ruler2.qml</file>
         <file>AlgorithmSelection.qml</file>
+        <file>Chronometer.qml</file>
+        <file>Global.js</file>
     </qresource>
 </RCC>

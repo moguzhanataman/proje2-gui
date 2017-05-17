@@ -4,6 +4,7 @@ import QtQuick.Controls 2.1
 Rectangle {
     width: 1078
     height: 700
+    property alias fixedImageFrame: fixedImageFrame
 
     property int currentIndex: 1
 
@@ -41,6 +42,10 @@ Rectangle {
         onSetWidth: {
             stickMan.height = height * (42.0 / 480) / 2
         }
+
+        onStopTimer: {
+            textTimer.running = false
+        }
     }
 
     MouseArea {
@@ -55,8 +60,8 @@ Rectangle {
             id: fixedImageFrame
             x: 102
             y: 64
-            width: 420
-            height: 296
+            width: 630
+            height: 444
             color: "#ffffff"
             z: 1
             border.width: 1
@@ -131,7 +136,7 @@ Rectangle {
             y: 64
             width: 52
             height: 296
-            maxVal: 18
+            maxVal: 15
         }
 
         Ruler {

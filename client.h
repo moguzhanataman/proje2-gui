@@ -57,6 +57,7 @@
 #include <QString>
 #include <QThread>
 #include "sockettoqml.h"
+#include "digitalclock.h"
 
 class QComboBox;
 class QLabel;
@@ -70,6 +71,7 @@ class Client : public QObject
     Q_OBJECT
 
 public:
+    DigitalClock clock;
     explicit Client();
     QString currentMessage;
     void readMessage();
@@ -89,6 +91,7 @@ public slots:
     void sendStart(int algorithm);
 
     void setIpAddr(QString ipAddr);
+    void initClock();
 
 signals:
     void setRotation(int degree);
@@ -99,6 +102,7 @@ signals:
     void setHeight(int height);
     void setWidth(int width);
 
+    void stopTimer();
 private:
     QTcpSocket *tcpSocket;
     QDataStream in;

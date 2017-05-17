@@ -11,11 +11,17 @@ class DigitalClock : QObject
 
 public:
     DigitalClock();
-    void init();
     QTime *time;
     QTimer *timer;
-private slots:
-    void showTime();
+    QString text;
+
+public slots:
+    void updateTime();
+    QString getTime();
+    void init();
+
+signals:
+    void clockTick(QString currentClock);
 };
 
 #endif

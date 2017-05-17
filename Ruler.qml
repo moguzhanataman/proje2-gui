@@ -12,6 +12,7 @@ Rectangle {
 
     Gauge {
         id: gauge
+
         height: 5
         maximumValue: 42
         anchors.fill: parent

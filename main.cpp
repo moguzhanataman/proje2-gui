@@ -14,6 +14,7 @@ int main(int argc, char *argv[])
 
     qDebug() << "hello1" << endl;
     Client client;
+//    DigitalClock clock;
     qDebug() << "hello2" << endl;
 //    client.Init("192.168.43.246");
 //    client.Init("10.1.18.126");
@@ -22,7 +23,7 @@ int main(int argc, char *argv[])
     QQmlContext* ctx = engine.rootContext();
     qDebug() << "hello4" << endl;
     ctx->setContextProperty("client", &client);
-
+//    ctx->setContextProperty("clock", &clock);
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
 
     return app.exec();

@@ -9,25 +9,25 @@ DigitalClock::DigitalClock()
 {
     timer = new QTimer(this);
     time = new QTime(0,0,0);
-    connect(timer, SIGNAL(timeout()), this, SLOT(showTime()));
+    connect(timer, SIGNAL(timeout()), this, SLOT(updateTime()));
 
 }
 
 void DigitalClock::init(){
-
     timer->start(1000);
-
-    showTime();
-
 }
 
-void DigitalClock::showTime()
-{
+QString DigitalClock::getTime() {
+    return text;
+}
 
+void DigitalClock::updateTime()
+{
     *time = time->addSecs(1);
-    QString text = time->toString("mm:ss");
-    if ((time->second() % 2) == 0)
+    text = time->toString("mm:ss");
+    if ((time->second() % 2) == 0) {
         text[2] = ' ';
-      qInfo()<<text;
+    }
+    qInfo()<<text;
 //    display(text);
 }
