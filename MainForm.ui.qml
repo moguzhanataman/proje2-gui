@@ -61,10 +61,10 @@ Rectangle {
             x: 102
             y: 64
             // MERGE CONF
-            //width: 630
-            //height: 444
-            width: 672
-            height: 474
+            width: 630
+            height: 444
+//            width: 672
+//            height: 474
             color: "#ffffff"
             z: 1
             border.width: 1

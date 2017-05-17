@@ -63,11 +63,11 @@ Window {
 //        }
 
         Rectangle {
-            id: main
+            id: chronoRect
             width: 217
             height: 162
-            x: 853
-            y: 530
+            x: 800
+            y: 571
 
             border.width: 1
 
