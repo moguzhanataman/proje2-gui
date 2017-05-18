@@ -4,6 +4,7 @@ import QtQuick.Controls 2.1
 Rectangle {
     width: 1078
     height: 700
+    transformOrigin: Item.Center
     property alias fixedImageFrame: fixedImageFrame
 
     property int currentIndex: 1
@@ -27,12 +28,12 @@ Rectangle {
 
         onSetPosX: {
             console.log(qsTr('position from left: ' + x))
-            stickMan.x = x
+            stickMan.x = x * 3
         }
 
         onSetPosY: {
             console.log(qsTr('position from top: ' + y))
-            stickMan.y = y
+            stickMan.y = y * 3
         }
 
         onSetHeight: {
@@ -74,18 +75,15 @@ Rectangle {
 
     MouseArea {
         id: mouseArea
-        anchors.left: parent.left
-        anchors.bottom: parent.bottom
-        anchors.top: parent.top
-        anchors.bottomMargin: 0
-        anchors.topMargin: 0
 
         Rectangle {
             id: fixedImageFrame
-            x: 102
-            y: 64
+            //x: 102
+            //y: 64
             width: 630
             height: 444
+            x: 101
+            y: 112
             color: "#ffffff"
             z: 1
             border.width: 1
@@ -98,12 +96,22 @@ Rectangle {
                 height: 64
                 source: "template/camera-icon.png"
             }
+
+            Image {
+                id: image1
+                x: -253
+                y: 200
+                rotation: 90
+                width: 458
+                height: 56
+                source: "template/Ruler15.png"
+            }
         }
 
         Rectangle {
             id: hardwareSettings
-            x: 800
-            y: 225
+            x: 818
+            y: 185
             width: 217
             height: 331
             color: "#ffffff"
@@ -152,40 +160,12 @@ Rectangle {
                 y: 16
             }
         }
-
-        Ruler {
-            id: rulerVert1
-            x: 44
-            y: 64
-            width: 52
-            height: 296
-            rotation: 0
-            maxVal: 15
-        }
-
-        Ruler {
-            id: rulerHor1
-            x: 286
-            y: -169
-            width: 52
-            height: 420
-            maxVal: 21
-            rotation: 90
-        }
-    }
-
-    Text {
-        id: text2
-        x: 57
-        y: 28
-        text: qsTr("cm")
-        font.pixelSize: 20
     }
 
     Rectangle {
         id: rectangle
-        x: 800
-        y: 64
+        x: 819
+        y: 21
         width: 217
         height: 153
         color: "#ffffff"
@@ -211,5 +191,14 @@ Rectangle {
             y: 97
             text: qsTr("Connect")
         }
+    }
+
+    Image {
+        id: image
+        x: 101
+        y: 56
+        width: 645
+        height: 56
+        source: "template/Ruler21.png"
     }
 }

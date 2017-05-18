@@ -63,9 +63,9 @@ Window {
         Rectangle {
             id: chronoRect
             width: 217
-            height: 162
-            x: 800
-            y: 571
+            height: 129
+            x: 817
+            y: 527
 
             border.width: 1
 

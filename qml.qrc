@@ -9,5 +9,9 @@
         <file>Global.js</file>
         <file>template/stick-man-vector.svg</file>
         <file>template/camera-icon.png</file>
+        <file>template/Ruler15.png</file>
+        <file>template/Ruler21.png</file>
+        <file>template/Ruler30.png</file>
+        <file>Image1.ui.qml</file>
     </qresource>
 </RCC>

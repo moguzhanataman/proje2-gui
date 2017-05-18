@@ -155,8 +155,8 @@ void Client::readMessage()
 
                 emit this->stickManFound();
             } else {
-                emit this->setPosX(cam_x);
-                emit this->setPosY(cam_y);
+                emit this->setPosX((cam_x - 28));
+                emit this->setPosY((cam_y - 21));
             }
 
 
