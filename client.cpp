@@ -147,9 +147,9 @@ void Client::readMessage()
             bool isCinAli = (cinali_x > 0) && (cinali_y > 0) && (height > 0) && (width > 0) && (angle > 0);
 
             if (isCinAli) {
-                emit this->setPosX(abs((int) ((cam_x - 22) - cinali_x * (42.0/480))));
-                emit this->setPosY(abs((int) ((cam_y - 28) + cinali_y * (56.0/640))));
-                emit this->setRotation(angle-180);
+                emit this->setPosX((int) ((cam_x - 22) - cinali_x * (42.0/480)));
+                emit this->setPosY((int) ((cam_y - 28) + cinali_y * (56.0/640)));
+                emit this->setRotation(angle);
 
                 emit this->setHeight((int) height/480.0 * (42.0/480));
                 emit this->setWidth((int) width/640.0 * (56.0/640));
