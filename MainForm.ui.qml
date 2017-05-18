@@ -4,6 +4,7 @@ import QtQuick.Controls 2.1
 Rectangle {
     width: 1078
     height: 700
+    property alias stickMan: stickMan
     transformOrigin: Item.Center
     property alias fixedImageFrame: fixedImageFrame
 

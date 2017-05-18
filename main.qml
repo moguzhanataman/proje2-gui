@@ -43,6 +43,16 @@ Window {
         }
 
         connectButton.onClicked: {
+            stickMan.source = "/template/camera-icon.png"
+            stickMan.width = 64
+            stickMan.height = 64
+            stickMan.rotation = 0
+            stickMan.x = 0
+            stickMan.y = 0
+
+            startTime = new Date().getTime()
+            chronoText.text = "00:00:00"
+
             client.init(ipAddrTextField.text)
 //            client.setIpAddr(ipAddrTextField.text)
         }

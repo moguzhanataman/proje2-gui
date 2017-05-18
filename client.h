@@ -76,6 +76,7 @@ public:
     QString currentMessage;
     void readMessage();
     void sendMessage(QString messageToSend);
+    void endSocket();
 
 public slots:
     void init(QString dom = "127.0.0.1");
